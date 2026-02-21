@@ -1,13 +1,5 @@
-FROM ubuntu:22.04
-
-RUN apt-get update && apt-get install -y g++
-
+FROM python:3.9
 WORKDIR /app
-
-COPY app.cpp .
-
-RUN g++ app.cpp -o app
-
+COPY app.py .
 EXPOSE 8080
-
-CMD ["./app"]
+CMD ["python", "app.py"]
